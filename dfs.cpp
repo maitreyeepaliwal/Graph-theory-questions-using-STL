@@ -4,7 +4,7 @@ using namespace std;
 void addEdge(vector <int> adj[], int u, int v)
 {
     adj[u].push_back(v);
-    adj[u].push_back(v);
+    adj[v].push_back(u);
 }
 
 void DFSUtil(int u, vector<int> adj[], vector<bool> &visited) 
@@ -18,8 +18,8 @@ void DFSUtil(int u, vector<int> adj[], vector<bool> &visited)
 
 void dfs(vector <int> adj[], int v)
 {
-    vector <int> visited(v,false);
-    for (int u=0; u<V; u++) 
+    vector <bool> visited(v,false);
+    for (int u=0; u<v; u++) 
         if (visited[u] == false) 
             DFSUtil(u, adj, visited); 
 }
